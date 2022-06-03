@@ -40,7 +40,7 @@ pipeline {
              steps {
                  /* echo "Running ${env.BUILD_TAG} and Build_id is ${env.BUILD_ID}" */
                  echo "${value1}"
-                 sh "docker rm simple-node-app-${value1} " 
+                 sh "docker rmi simple-node-app-${value1} " 
             }
          }
           stage('Run Docker Image'){
