@@ -28,7 +28,7 @@ pipeline {
             } */
          stage('Build Docker Image'){
              steps {  
-                 sh 'sudo docker build -t simple-node-app-v2 .'
+                 sh 'docker build -t simple-node-app-v2 .'
             }   
         }
     }
