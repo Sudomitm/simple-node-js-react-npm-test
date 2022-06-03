@@ -32,6 +32,11 @@ pipeline {
              steps {
                  /* echo "Running ${env.BUILD_TAG} and Build_id is ${env.BUILD_ID}" */
                  sh "docker build -t simple-node-app-${env.BUILD_ID} ." 
+            }
+          stage('Run Docker Image'){
+             steps {
+                 /* echo "Running ${env.BUILD_TAG} and Build_id is ${env.BUILD_ID}" */
+                 sh "docker run -dp 3000:3000 simple-node-app-${env.BUILD_ID} ." 
             }   
         }
     }
