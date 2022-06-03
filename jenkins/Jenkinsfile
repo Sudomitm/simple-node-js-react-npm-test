@@ -29,7 +29,7 @@ pipeline {
          stage('Build Docker Image'){
              steps {
                  echo "Running ${env.BUILD_TAG}"
-                 sh 'docker build -t simple-node-app-v2 .'
+                /* sh 'docker build -t simple-node-app-v2 .' */
             }   
         }
     }
