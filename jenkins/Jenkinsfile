@@ -1,3 +1,5 @@
+def value1 = "${env.BUILD_ID} - 1"
+
 pipeline {
     agent any
     /* agent {
@@ -32,6 +34,12 @@ pipeline {
              steps {
                  /* echo "Running ${env.BUILD_TAG} and Build_id is ${env.BUILD_ID}" */
                  sh "docker build -t simple-node-app-${env.BUILD_ID} ." 
+            }
+         }
+         stage('Remove previous Docker Image'){
+             steps {
+                 /* echo "Running ${env.BUILD_TAG} and Build_id is ${env.BUILD_ID}" */
+                 sh "docker rm simple-node-app-${value1} " 
             }
          }
           stage('Run Docker Image'){
