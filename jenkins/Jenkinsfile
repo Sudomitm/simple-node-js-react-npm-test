@@ -1,4 +1,6 @@
-def value1 = "${env.BUILD_ID}" - 1
+
+def value1 = "${env.BUILD_ID }" as int
+def value2 = value1 - 1
 
 pipeline {
     agent any
@@ -39,8 +41,8 @@ pipeline {
          stage('Remove previous Docker Image'){
              steps {
                  /* echo "Running ${env.BUILD_TAG} and Build_id is ${env.BUILD_ID}" */
-                 echo "${value1}"
-                 sh "docker rmi simple-node-app-${value1} " 
+                 echo "${value2}"
+                 sh "docker rmi simple-node-app-${value2} " 
             }
          }
           stage('Run Docker Image'){
